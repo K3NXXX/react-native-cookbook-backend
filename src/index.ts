@@ -3,6 +3,7 @@ import cors from 'cors'
 import express from 'express'
 import os from 'os'
 import authRoutes from './routes/auth.routes.js'
+import recipesRoutes from './routes/recipes.route.js'
 
 const prisma = new PrismaClient()
 const app = express()
@@ -13,6 +14,7 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/auth', authRoutes(prisma))
+app.use('/recipes', recipesRoutes(prisma))
 
 function getIPAddress(): string {
 	const interfaces = os.networkInterfaces()

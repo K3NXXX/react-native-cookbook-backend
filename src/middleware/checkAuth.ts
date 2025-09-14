@@ -6,7 +6,7 @@ export interface AuthRequest extends Request {
 }
 
 interface DecodedToken {
-  id: string;
+  id: string | number;
 }
 
 export const checkAuth = (req: AuthRequest, res: Response, next: NextFunction) => {
